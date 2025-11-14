@@ -12,4 +12,4 @@ node_modules/
 .cache/
 coverage/
 *.log
-.trae\documents
+.trae/documents
