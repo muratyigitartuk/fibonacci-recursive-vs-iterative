@@ -1,0 +1,4 @@
+Python Fibonacci Benchmarks
+method	n=30	n=40	n=50 (ms)
+recursive_memo	0.012	0.014	0.017
+iterative	0.001	0.001	0.002

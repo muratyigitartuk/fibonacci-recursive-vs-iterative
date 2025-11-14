@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Python tests
+        run: python -m unittest -v python.tests.test_fibonacci
+      - name: Run Python benchmarks
+        run: python python/benchmark.py > python_bench.txt
+      - name: Upload Python benchmark artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-bench
+          path: python_bench.txt
+
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run Node tests
+        run: node --test js/tests/fibonacci.test.mjs
+      - name: Run Node benchmarks
+        run: node js/benchmark.js > node_bench.txt
+      - name: Upload Node benchmark artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-bench
+          path: node_bench.txt
