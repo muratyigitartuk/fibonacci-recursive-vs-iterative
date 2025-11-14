@@ -45,13 +45,13 @@ iterative         0.001    0.001    0.002
 ## Diagram
 ```mermaid
 graph TD;
-    A[Input n] --> B{Approach};
-    B --> C[Recursive + Memoization];
-    B --> D[Iterative];
-    C --> E[Compute fib(n)];
+    A["Input n"] --> B{"Approach"};
+    B --> C["Recursive + Memoization"];
+    B --> D["Iterative"];
+    C --> E["Compute fib(n)"];
     D --> E;
-    E --> F[Measure time];
-    F --> G[Report n=30, 40, 50];
+    E --> F["Measure time"];
+    F --> G["Report n=30 40 50"];
 ```
 
 ## Files
